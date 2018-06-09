@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.adidas.challenge.domain.TravelDto;
 
-@FeignClient("adidas-data")
+@FeignClient("data-service")
 public interface DataRestService {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/travel/{city}")
