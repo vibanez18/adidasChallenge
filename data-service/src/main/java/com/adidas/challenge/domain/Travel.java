@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class TravelEntity {
+public class Travel {
 	
 	@Id
 	@GeneratedValue
@@ -22,16 +22,16 @@ public class TravelEntity {
 	@NotNull
 	private LocalDateTime arrivalTime;
 	
-	public TravelEntity() {
+	public Travel() {
 		super();
 	}
 	
-	public TravelEntity(String city, String detinyCity, LocalDateTime departureTime, LocalDateTime arrivalTime) {
+	public Travel(String city, String destinyCity, LocalDateTime departureTime, LocalDateTime arrivalTime) {
 		this();
 		this.arrivalTime = arrivalTime;
 		this.city = city;
 		this.departureTime = departureTime;
-		this.arrivalTime = arrivalTime;
+		this.destinyCity = destinyCity;
 	}
 	
 	public Long getId() {

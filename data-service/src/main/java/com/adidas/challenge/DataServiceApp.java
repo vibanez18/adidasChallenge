@@ -14,7 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.adidas.challenge.domain.TravelEntity;
+import com.adidas.challenge.domain.Travel;
 import com.adidas.challenge.repository.TravelRepository;
 
 @EnableDiscoveryClient
@@ -36,13 +36,12 @@ public class DataServiceApp {
 	
 	@PostConstruct
 	public void init() {
-		List<TravelEntity> list = new ArrayList<>();
+		List<Travel> list = new ArrayList<>();
 		
-		list.add(new TravelEntity("Valencia", "Madrid", LocalDateTime.of(2018, Month.JUNE, 18, 0, 0), LocalDateTime.of(2018, Month.JUNE, 19, 45, 0)));
-		list.add(new TravelEntity("Valencia", "Barcelona", LocalDateTime.of(2018, Month.JUNE, 18, 0, 0), LocalDateTime.of(2018, Month.JUNE, 21, 30, 0)));
-		list.add(new TravelEntity("Valencia", "Zaragoza", LocalDateTime.of(2018, Month.JUNE, 18, 0, 0), LocalDateTime.of(2018, Month.JUNE, 21, 10, 0)));
+		list.add(new Travel("Valencia", "Madrid", LocalDateTime.of(2018, Month.JUNE, 18, 18, 0), LocalDateTime.of(2018, Month.JUNE, 18, 19, 45)));
+		list.add(new Travel("Valencia", "Barcelona", LocalDateTime.of(2018, Month.JUNE, 18, 18, 0), LocalDateTime.of(2018, Month.JUNE, 18, 21, 30)));
+		list.add(new Travel("Valencia", "Zaragoza", LocalDateTime.of(2018, Month.JUNE, 18, 17, 0), LocalDateTime.of(2018, Month.JUNE, 18, 19, 15)));
 		
-//		travelRepository.save(list);
-		
+		travelRepository.saveAll(list);
 	}
 }
