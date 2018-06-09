@@ -1,0 +1,2 @@
+insert into travel_entity	
+values(10001,'Ranga', 'E1234567');
