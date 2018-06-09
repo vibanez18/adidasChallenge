@@ -1,4 +1,4 @@
-package com.adidas.challenge.api.data;
+package com.adidas.challenge.domain;
 
 import java.time.LocalDateTime;
 

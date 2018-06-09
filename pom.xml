@@ -24,7 +24,6 @@
 		<module>registry-server</module>
 		<module>gateway-service</module>
 		<module>data-service</module>
-		<module>core-api</module>
 	</modules>
 	
 	<dependencyManagement>
