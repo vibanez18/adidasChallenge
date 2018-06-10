@@ -1,4 +1,4 @@
-package com.adidas.challenge.rest.service;
+package com.adidas.challenge.rest.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.adidas.challenge.domain.TravelDto;
 import com.adidas.challenge.rest.domain.TravelRestDto;
+import com.adidas.challenge.rest.service.DataRestService;
 import com.adidas.challenge.service.DataService;
 
 @RequestMapping("/travel")
 @RestController
-public class DataRestServiceImpl implements DataRestService{
+public class DataRestController implements DataRestService{
 	
 	@Autowired private DataService dataService;
 
