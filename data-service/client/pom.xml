@@ -3,14 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.adidas.challenge</groupId>
-		<artifactId>adidas-challenge</artifactId>
+		<artifactId>data-service</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>data-service</artifactId>
-	<packaging>pom</packaging>
-	<name>data-service</name>
-	<modules>
-		<module>client</module>
-		<module>service</module>
-	</modules>
+	<artifactId>client</artifactId>
+	<name>data-service-client</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+	</dependencies>
 </project>
