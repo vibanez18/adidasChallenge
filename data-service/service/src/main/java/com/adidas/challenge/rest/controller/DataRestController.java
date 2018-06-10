@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adidas.challenge.domain.TravelDto;
@@ -25,6 +26,11 @@ public class DataRestController implements DataRestService{
 	@RequestMapping(method = RequestMethod.GET, value = "/{city}")
 	public List<TravelRestDto> findTravelByCity(@PathVariable("city") String city) {
 		return copyBeanProperties(dataService.findTravelByCity(city));
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public List<TravelRestDto> findTravelByCityAndDestinyCity(@RequestParam("city") String city, @RequestParam("destinyCity") String destinyCity) {
+		return copyBeanProperties(dataService.findTravelByCityAndDestinyCity(city, destinyCity));
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{city}/{arrivalTime}")

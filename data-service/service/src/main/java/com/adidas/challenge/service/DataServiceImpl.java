@@ -28,6 +28,11 @@ public class DataServiceImpl implements DataService {
 		return copyPropertiesBean(travels);
 	}
 
+	public List<TravelDto> findTravelByCityAndDestinyCity(String city, String destinyCity) {
+		List<Travel> travels = travelRepository.findTravelByCityAndDestinyCity(city, destinyCity);
+		return copyPropertiesBean(travels);
+	}
+
 	private List<TravelDto> copyPropertiesBean(List<Travel> travels) {
 		List<TravelDto> travelsDto = new ArrayList<>();
 		
@@ -38,4 +43,5 @@ public class DataServiceImpl implements DataService {
 		}
 		return travelsDto;
 	}
+
 }
