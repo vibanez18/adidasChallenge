@@ -21,17 +21,20 @@ public class Travel {
 	private LocalDateTime departureTime;
 	@NotNull
 	private LocalDateTime arrivalTime;
+	@NotNull
+	private boolean direct;
 	
 	public Travel() {
 		super();
 	}
 	
-	public Travel(String city, String destinyCity, LocalDateTime departureTime, LocalDateTime arrivalTime) {
+	public Travel(String city, String destinyCity, LocalDateTime departureTime, LocalDateTime arrivalTime, boolean direct) {
 		this();
 		this.arrivalTime = arrivalTime;
 		this.city = city;
 		this.departureTime = departureTime;
 		this.destinyCity = destinyCity;
+		this.direct = direct;
 	}
 	
 	public Long getId() {
@@ -63,6 +66,14 @@ public class Travel {
 	}
 	public void setArrivalTime(LocalDateTime arrivalTime) {
 		this.arrivalTime = arrivalTime;
+	}
+
+	public boolean isDirect() {
+		return direct;
+	}
+
+	public void setDirect(boolean direct) {
+		this.direct = direct;
 	}
 	
 

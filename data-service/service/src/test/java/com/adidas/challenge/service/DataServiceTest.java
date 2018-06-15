@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class DataServiceTest {
 	@Autowired private DataService dataService;
 	
 	@Test
+	@Ignore
 	public void findTravelByCityTest() {
 		findTravelByCity("Valencia");
 		findTravelByCity("Madrid");
@@ -29,6 +31,7 @@ public class DataServiceTest {
 	}
 
 	@Test
+	@Ignore
 	public void findTravelByArrivalTimeTest() {
 		findTravelByCityAndArrivalTime("Valencia", LocalDateTime.of(2018, Month.JUNE, 18, 11, 45));
 		findTravelByCityAndArrivalTime("Zaragoza", LocalDateTime.of(2018, Month.JUNE, 18, 13, 15));

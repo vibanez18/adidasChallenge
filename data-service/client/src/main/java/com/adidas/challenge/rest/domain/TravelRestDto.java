@@ -9,6 +9,7 @@ public class TravelRestDto {
 	private String destinyCity;
 	private LocalDateTime departureTime;
 	private LocalDateTime arrivalTime;
+	private boolean direct;
 	
 	public Long getId() {
 		return id;
@@ -39,6 +40,12 @@ public class TravelRestDto {
 	}
 	public void setArrivalTime(LocalDateTime arrivalTime) {
 		this.arrivalTime = arrivalTime;
+	}
+	public boolean isDirect() {
+		return direct;
+	}
+	public void setDirect(boolean direct) {
+		this.direct = direct;
 	}
 
 }
