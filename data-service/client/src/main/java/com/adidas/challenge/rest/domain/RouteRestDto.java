@@ -2,10 +2,19 @@ package com.adidas.challenge.rest.domain;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "Info Route", description = "Complete data of a route entity Info")
 public class RouteRestDto {
+	
+	@ApiModelProperty(value = "Id of the route", required = true)
 	private Long id;
+	@ApiModelProperty(value = "Name of the city of origin", required = true)
 	private String city;
+	@ApiModelProperty(value = "Name of the destination city", required = true)
 	private String destinyCity;
+	@ApiModelProperty(value = "Travel Connections", required = true)
 	private List<TravelRestDto> travels;
 	
 	public Long getId() {

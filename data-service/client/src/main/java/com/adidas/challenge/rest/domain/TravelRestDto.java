@@ -2,13 +2,23 @@ package com.adidas.challenge.rest.domain;
 
 import java.time.LocalDateTime;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "Info travel", description = "Complete data of a travel entity Info")
 public class TravelRestDto {
 	
+	@ApiModelProperty(value = "Id of the travel", required = true)
 	private Long id;
+	@ApiModelProperty(value = "Name of the city of origin", required = true)
 	private String city;
+	@ApiModelProperty(value = "Name of the destination city", required = true)
 	private String destinyCity;
+	@ApiModelProperty(value = "Date/Time of departure", required = true)
 	private LocalDateTime departureTime;
+	@ApiModelProperty(value = "Date/Time of arrival", required = true)
 	private LocalDateTime arrivalTime;
+	@ApiModelProperty(value = "Travel direct or with connections", required = true)
 	private boolean direct;
 	
 	public Long getId() {

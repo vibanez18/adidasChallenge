@@ -1,6 +1,5 @@
 package com.adidas.challenge.rest.controller;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,13 @@ import com.adidas.challenge.rest.service.DataRestService;
 import com.adidas.challenge.service.DataRouteService;
 import com.adidas.challenge.service.DataService;
 
-@RequestMapping("/travel")
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
+@RequestMapping("/api/travels")
+@Api(value = "travels", produces = "application/json")
 @RestController
 public class DataRestController implements DataRestService{
 	
@@ -28,21 +33,34 @@ public class DataRestController implements DataRestService{
 	@Autowired private DataRouteService dataRouteService;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{city}")
+	@ApiOperation(value = "Get all Travels by city", notes = "Get all Travels by city")
+	@ApiResponses({
+        @ApiResponse(code = 200, message = "Return all travels by city")
+	})
 	public List<TravelRestDto> findTravelByCity(@PathVariable("city") String city) {
 		return copyBeanProperties(dataService.findTravelByCity(city));
 	}
+	
+//	@RequestMapping(method = RequestMethod.GET, value = "/{city}/{arrivalTime}")
+//	public List<TravelRestDto> findTravelByArrivalTime(@PathVariable("city") String city, @PathVariable("arrivalTime") LocalDateTime arrivalTime) {
+//		return copyBeanProperties(dataService.findTravelByCityAndArrivalTime(city, arrivalTime));
+//	}
 
 	@RequestMapping(method = RequestMethod.GET)
+	@ApiOperation(value = "Get all Travels by city and destiny city", notes = "Get all Travels by city and destiny city")
+	@ApiResponses({
+        @ApiResponse(code = 200, message = "Return all travels by city and destiny city")
+	})
 	public List<TravelRestDto> getTravel(@RequestParam("city") String city, @RequestParam("destinyCity") String destinyCity) {
 		return copyBeanProperties(dataService.findTravelByCityAndDestinyCity(city, destinyCity));
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{city}/{arrivalTime}")
-	public List<TravelRestDto> findTravelByArrivalTime(@PathVariable("city") String city, @PathVariable("arrivalTime") LocalDateTime arrivalTime) {
-		return copyBeanProperties(dataService.findTravelByCityAndArrivalTime(city, arrivalTime));
-	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/route")
+	@ApiOperation(value = "Get all Routes by city and destiny city", notes = "Get all Routes by city and destiny city")
+	@ApiResponses({
+        @ApiResponse(code = 200, message = "Return all routes by city and destiny city")
+	})
 	public List<RouteRestDto> getRoute(String city, String destinyCity) {
 		
 		return copyRouteRestDtoProperties(dataRouteService.findTravelByCityAndDestinyCity(city, destinyCity));
