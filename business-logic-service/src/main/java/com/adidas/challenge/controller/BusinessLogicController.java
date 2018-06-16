@@ -3,6 +3,7 @@ package com.adidas.challenge.controller;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -35,7 +36,19 @@ public class BusinessLogicController {
 		
 		//TODO: Sort by connection
 		
-		return calculateAllTravels(city, destinyCity);
+		List<CalculateResponse> calculateResponse = calculateAllTravels(city, destinyCity);
+		
+		Comparator<CalculateResponse> comparator = new Comparator<CalculateResponse>() {
+
+			public int compare(CalculateResponse o1, CalculateResponse o2) {
+				return Integer.compare(o1.getNumConnection(), o2.getNumConnection());
+			}
+			
+		};
+		
+		calculateResponse.sort(comparator);
+		
+		return calculateResponse;
 	}
 
 	private List<CalculateResponse> calculateAllTravels(String city, String destinyCity) {
@@ -48,6 +61,7 @@ public class BusinessLogicController {
  				CalculateResponse calculateResponse = new CalculateResponse();
  				BeanUtils.copyProperties(travelRestDto, calculateResponse);
  				calculateResponse.setConnection("Direct");
+ 				calculateResponse.setNumConnection(0);
  				
  				Duration duration = Duration.between(travelRestDto.getArrivalTime(), travelRestDto.getDepartureTime());
  				calculateResponse.setDuration(duration);
@@ -75,6 +89,7 @@ public class BusinessLogicController {
  					
  					Duration duration = Duration.between(arrivalTime, departureTime);
  					calculateResponseRoutes.setDuration(duration);
+ 					calculateResponseRoutes.setNumConnection(calculateResponseRoutes.getNumConnection()+1);
  					
  					calculateResponseList.add(calculateResponseRoutes);
 				}

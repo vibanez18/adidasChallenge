@@ -8,6 +8,11 @@ public class CalculateResponse {
 	private String destinyCity;
 	private Duration duration;
 	private String connection;
+	private int numConnection;
+	
+	CalculateResponse(){
+		this.numConnection = 0;
+	}
 	
 	public String getCity() {
 		return city;
@@ -34,5 +39,11 @@ public class CalculateResponse {
 	public void setConnection(String connection) {
 		this.connection = connection;
 	}
-
+	
+	public int getNumConnection() {
+		return numConnection;
+	}
+	public void setNumConnection(int numConnection) {
+		this.numConnection = numConnection;
+	}
 }

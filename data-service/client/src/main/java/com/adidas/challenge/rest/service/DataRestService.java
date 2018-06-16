@@ -15,7 +15,7 @@ import com.adidas.challenge.rest.domain.TravelRestDto;
 public interface DataRestService {
 	
 	//TODO: Remove
-	@RequestMapping(method = RequestMethod.GET, value = "/travel/{city}")
+	@RequestMapping(method = RequestMethod.GET, value = "/api/travel/{city}")
 	List<TravelRestDto> findTravelByCity(@PathVariable("city") String city);
 	
 	//TODO: Remove
@@ -23,9 +23,9 @@ public interface DataRestService {
 //	List<TravelRestDto> findTravelByArrivalTime(@PathVariable("city") String city,@PathVariable("time") LocalDateTime arrivalTime);
 	
 	//ok
-	@RequestMapping(method = RequestMethod.GET, value = "/travel")
+	@RequestMapping(method = RequestMethod.GET, value = "/api/travel")
 	List<TravelRestDto> getTravel(@RequestParam("city") String city, @RequestParam("destinyCity") String destinyCity);
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/travel/route")
+	@RequestMapping(method = RequestMethod.GET, value = "/api/travel/route")
 	List<RouteRestDto> getRoute(@RequestParam("city") String city, @RequestParam("destinyCity") String destinyCity);
 }

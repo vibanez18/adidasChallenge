@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@RequestMapping("/api/travels")
+@RequestMapping("/api/travel")
 @Api(value = "travels", produces = "application/json")
 @RestController
 public class DataRestController implements DataRestService{
