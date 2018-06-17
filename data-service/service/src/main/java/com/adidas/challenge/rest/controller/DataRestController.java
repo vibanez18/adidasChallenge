@@ -40,11 +40,6 @@ public class DataRestController implements DataRestService{
 	public List<TravelRestDto> findTravelByCity(@PathVariable("city") String city) {
 		return copyBeanProperties(dataService.findTravelByCity(city));
 	}
-	
-//	@RequestMapping(method = RequestMethod.GET, value = "/{city}/{arrivalTime}")
-//	public List<TravelRestDto> findTravelByArrivalTime(@PathVariable("city") String city, @PathVariable("arrivalTime") LocalDateTime arrivalTime) {
-//		return copyBeanProperties(dataService.findTravelByCityAndArrivalTime(city, arrivalTime));
-//	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get all Travels by city and destiny city", notes = "Get all Travels by city and destiny city")
