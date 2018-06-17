@@ -13,7 +13,7 @@ services:
       - registry-service
     environment:
       REGISTRY_SERVICE_URI: http://registry-service:8761/eureka
-      JAVA_OPTS: -Dspring.profiles.active=docker
+      JAVA_OPTS: -Dspring.profiles.active=docker -Dspring.h2.console.settings.web-allow-others=true
     ports:
       - 8002:8002
   
