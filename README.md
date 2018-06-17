@@ -39,12 +39,12 @@ pass: adidas
 
 ### Rest Service
 
-- Get all possible destinations in a city (Zaragoza, London, Berlin): /api/travel/{city}
+- Get all possible destinations in a city (Zaragoza, London, Berlin): /api/travel/{city}. Example
 
 	http://localhost:8002/api/travel/Berlin 
 - Calculate by time: /api/calculate/bytime?city={city}&destinyCity={destinyCity}. Example
 
 	http://localhost:8003/api/calculate/bytime?city=Zaragoza&destinyCity=Berlin	
-- Calculate by connection: http://localhost:8003/api/calculate/byconnection?city={city}&destinyCity={destinyCity}. Example
+- Calculate by connection: /api/calculate/byconnection?city={city}&destinyCity={destinyCity}. Example
 
 	http://localhost:8003/api/calculate/byconnection?city=Zaragoza&destinyCity=Milan
