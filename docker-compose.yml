@@ -1,0 +1,33 @@
+version: "3"
+services:
+  registry-service:
+    image: vibanez18/adidas-registry-server
+    restart: always
+    ports:
+      - 8761:8761
+      
+  data-service:
+    image: vibanez18/adidas-service
+    restart: always
+    depends_on:
+      - registry-service
+    environment:
+      REGISTRY_SERVICE_URI: http://registry-service:8761/eureka
+      JAVA_OPTS: -Dspring.profiles.active=docker
+    ports:
+      - 8002:8002
+  
+  business-logic-service:
+    image: vibanez18/adidas-business-logic-service
+    restart: always
+    depends_on:
+      - registry-service
+    environment:
+      REGISTRY_SERVICE_URI: http://registry-service:8761/eureka
+      JAVA_OPTS: -Dspring.profiles.active=docker
+    ports:
+      - 8003:8003
+
+#networks:
+#    dockernet:
+#        external: true

@@ -8,3 +8,15 @@ spring:
     username: adidas
     password: adidas
     driver-class-name: org.h2.Driver
+
+---
+
+spring:
+  profiles: docker
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: ${REGISTRY_SERVICE_URI}
